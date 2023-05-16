@@ -1,5 +1,7 @@
 package learn.selenium.driver;
 
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 public class SafariDriverManager extends DriverManager {
     @Override
     protected void setupDriver() {
@@ -7,7 +9,7 @@ public class SafariDriverManager extends DriverManager {
     }
 
     @Override
-    protected void createDriver() {
-
+    protected RemoteWebDriver createDriver() {
+return null;
     }
 }

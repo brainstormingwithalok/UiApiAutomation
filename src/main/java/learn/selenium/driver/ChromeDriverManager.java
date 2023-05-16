@@ -2,6 +2,7 @@ package learn.selenium.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +18,7 @@ public class ChromeDriverManager extends DriverManager {
     }
 
     @Override
-    protected void createDriver() {
-        driver = new ChromeDriver(optionManager.getChromeOption());
+    protected RemoteWebDriver createDriver() {
+        return new ChromeDriver(optionManager.getChromeOption());
     }
 }

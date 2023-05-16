@@ -9,33 +9,29 @@ public class DriverManagerFactory {
 
     public static DriverManager getDriverManager() {
         boolean isRemote = Boolean.parseBoolean(ConfigReader.INSTANCE.getProperty("remoteDriver"));
-        if (driverManager != null) {
-            return driverManager;
-        } else {
-            switch (Environment.getBrowser()) {
-                case "chrome":
-                    if (isRemote) {
-                        driverManager = new RemoteDriverManager();
-                    } else {
-                        driverManager = new ChromeDriverManager();
-                    }
-                    break;
-                case "firefox":
-                    if (isRemote) {
-                        driverManager = new RemoteDriverManager();
-                    } else {
-                        driverManager = new FirefoxDriverManager();
-                    }
-                    break;
-                default:
-                    if (isRemote) {
-                        driverManager = new RemoteDriverManager();
-                    } else {
-                        driverManager = new SafariDriverManager();
-                    }
-                    break;
+        switch (Environment.getBrowser()) {
+            case "chrome":
+                if (isRemote) {
+                    driverManager = new RemoteDriverManager();
+                } else {
+                    driverManager = new ChromeDriverManager();
+                }
+                break;
+            case "firefox":
+                if (isRemote) {
+                    driverManager = new RemoteDriverManager();
+                } else {
+                    driverManager = new FirefoxDriverManager();
+                }
+                break;
+            default:
+                if (isRemote) {
+                    driverManager = new RemoteDriverManager();
+                } else {
+                    driverManager = new SafariDriverManager();
+                }
+                break;
 
-            }
         }
         return driverManager;
     }

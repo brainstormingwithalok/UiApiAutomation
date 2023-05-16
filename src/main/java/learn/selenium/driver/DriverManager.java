@@ -7,26 +7,27 @@ import org.slf4j.LoggerFactory;
 
 public abstract class DriverManager {
     private static final Logger LOGGER = LoggerFactory.getLogger(DriverManager.class);
-    //private static ThreadLocal<RemoteWebDriver> driverThreadLocal = new ThreadLocal<>();
-    protected RemoteWebDriver driver;
+    private static ThreadLocal<RemoteWebDriver> driverThreadLocal = new ThreadLocal<>();
+//    protected RemoteWebDriver driver;
 
     protected abstract void setupDriver();
 
-    protected abstract void createDriver();
+    protected abstract RemoteWebDriver createDriver();
 
     public RemoteWebDriver getDriver() {
-        if (driver == null) {
+        if (driverThreadLocal.get() == null) {
             setupDriver();
-            createDriver();
+            driverThreadLocal.set(createDriver());
         }
-        return driver;
+        System.out.println("Thread id=" + Thread.currentThread().getId());
+        return driverThreadLocal.get();
     }
 
     public void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+        if (getDriver() != null) {
+            getDriver().quit();
         }
+        driverThreadLocal.remove();
     }
 
 }

@@ -17,7 +17,7 @@ public class RemoteDriverManager extends DriverManager {
     //Not needed for the selenoid
     }
     @Override
-    protected void createDriver() {
+    protected RemoteWebDriver createDriver() {
         String url = ConfigReader.INSTANCE.getProperty("gridURL");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         URL gridURL = null;
@@ -31,6 +31,6 @@ public class RemoteDriverManager extends DriverManager {
         if (Environment.getBrowser().equalsIgnoreCase("chrome")) {
             capabilities.setCapability(ChromeOptions.CAPABILITY, optionManager.getChromeOption());
         }
-        driver = new RemoteWebDriver(gridURL, capabilities);
+        return new RemoteWebDriver(gridURL, capabilities);
     }
 }

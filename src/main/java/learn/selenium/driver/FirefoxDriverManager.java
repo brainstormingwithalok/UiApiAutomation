@@ -6,6 +6,7 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +23,7 @@ public class FirefoxDriverManager extends DriverManager {
     }
 
     @Override
-    protected void createDriver() {
-        driver = new FirefoxDriver();
+    protected RemoteWebDriver createDriver() {
+        return new FirefoxDriver();
     }
 }
