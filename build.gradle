@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.0'
 }
 
 group = 'learn.anything'
@@ -10,11 +11,28 @@ repositories {
 }
 
 dependencies {
+    //UI
     implementation "org.seleniumhq.selenium:selenium-java:${seleniumJavaVersion}"
     implementation 'io.github.bonigarcia:webdrivermanager:5.3.3'
+    //API
+    implementation group: 'org.testng', name: 'testng', version: '6.14.3'
+    implementation 'io.rest-assured:rest-assured:5.3.0'
+    /**
+     * Common
+     */
+    //Logging
     implementation 'org.slf4j:slf4j-api:2.0.7'
-    // https://mvnrepository.com/artifact/org.testng/testng
-    testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
+    //Allure reporting
+    implementation 'io.qameta.allure:allure-testng:2.22.0'
+    //Assertion
+    implementation 'org.assertj:assertj-core:3.15.0'
+    //Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    //Gson
+    implementation 'com.google.code.gson:gson:2.10.1'
+    //Ashot image compare
+    implementation 'ru.yandex.qatools.ashot:ashot:1.5.4'
+
 }
 
 test {

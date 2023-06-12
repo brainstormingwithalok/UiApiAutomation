@@ -1,4 +1,4 @@
-package api.selenium;
+package selenium;
 
 import learn.selenium.driver.DriverFactorySingle;
 import learn.selenium.pages.LoginPage;

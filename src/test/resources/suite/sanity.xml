@@ -3,12 +3,12 @@
 <suite name="My suite" parallel="tests" thread-count="4">
     <test name="Thread1">
         <classes>
-            <class name="api.selenium.LoginTestThread1"/>
+            <class name="selenium.LoginTestThread1"/>
         </classes>
     </test>
     <test name="Thread2">
         <classes>
-            <class name="api.selenium.LoginTestThread2"/>
+            <class name="selenium.LoginTestThread2"/>
         </classes>
     </test>
 </suite>

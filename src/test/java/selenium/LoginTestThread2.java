@@ -1,12 +1,17 @@
-package api.selenium;
+package selenium;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import learn.selenium.driver.DriverManagerFactory;
 import learn.selenium.pages.LoginPage;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Epic("Sanity Test")
+@Feature("LoginTest for thread 2")
 public class LoginTestThread2 {
     LoginPage loginPage;
 

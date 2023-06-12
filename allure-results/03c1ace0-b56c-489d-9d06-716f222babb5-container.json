@@ -1,0 +1,1 @@
+{"uuid":"03c1ace0-b56c-489d-9d06-716f222babb5","name":"selenium.ChromeTest","children":["6f8a8443-b170-4b8e-ab45-1a0e10a455d6"],"befores":[{"name":"setupClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1685531091454,"stop":1685531092598}],"afters":[],"start":1685531091442,"stop":1685531101486}
